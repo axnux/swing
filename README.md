@@ -4,6 +4,10 @@
 [![NPM version](http://img.shields.io/npm/v/swing.svg?style=flat-square)](https://www.npmjs.org/package/swing)
 [![js-canonical-style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
 
+```
+This repository is forked for a very specific need of a project by disabling the changing of the cards' order in the stack when dragging/panning around.
+```
+
 A swipeable cards interface. The swipe-left/swipe-right for yes/no input. As seen in apps like [Jelly](http://jelly.co/) and [Tinder](http://www.gotinder.com/), and [many others](http://www.saydaily.com/2014/09/tinder-swipe-and-media).
 
 Give it a [swing](http://gajus.com/sandbox/swing/examples/card-stack/)! and please [tweet it](https://twitter.com/intent/retweet?tweet_id=527505589732405248) if you like it. : )
@@ -136,6 +140,7 @@ const stack = stack = Swing.Stack(config);
 | `rotation` | Invoked in the event of `dragmove`. Determine the rotation of the element. | Rotation is equal to the proportion of horizontal and vertical offset times the `maximumRotation` constant. |
 | `maxRotation` | In effect when `rotation` is not overwritten. | 20. |
 | `transform` | Invoked in the event of `dragmove` and every time the physics solver is triggered. | Uses CSS transform to translate element position and rotation. |
+| `lastInFirstOut` | Will maintain the order of the children | true |
 
 All of the configuration parameters are optional. Refer to the source code of the [card](https://github.com/gajus/swing/blob/master/src/card.js) module to learn the parameters associated with every callback.
 

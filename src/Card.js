@@ -105,7 +105,10 @@ const Card = (stack, targetElement, prepend) => {
     }
 
     eventEmitter.on('panstart', () => {
-      Card.appendToParent(targetElement);
+      // explicitly disable to allow always 'last-in-first-out' behaviour
+      if (!config.lastInFirstOut) {
+        Card.appendToParent(targetElement);
+      }
 
       eventEmitter.trigger('dragstart', {
         target: targetElement
@@ -414,7 +417,8 @@ Card.makeConfig = (config = {}) => {
     rotation: Card.rotation,
     throwOutConfidence: Card.throwOutConfidence,
     throwOutDistance: Card.throwOutDistance,
-    transform: Card.transform
+    transform: Card.transform,
+    lastInFirstOut: true
   };
 
   return _.assign({}, defaultConfig, config);
